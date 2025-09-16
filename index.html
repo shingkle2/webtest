@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시민과 함께하는 안전한 디지털 세상, 정보보안 길잡이</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Palette: SF Style (Dark Navy, Magenta, Cyan, White) -->
+    <!-- Narrative Plan: Hook (Big Stats with Icons) -> Explain Threats (Chart) -> Provide Solutions (Flowchart) -> Introduce Host (Diagram with Icons) -> Call to Action (Timeline with Icons/Registration) -->
+    <!-- Visualization Choices: -->
+    <!-- Data: Daily Threats -> Goal: Inform -> Viz: Big Number + Icon -> Justification: Immediate impact. Method: HTML/CSS. No SVG. -->
+    <!-- Data: Threat Types -> Goal: Compare -> Viz: Line Chart -> Justification: Shows trends over time. Library: Chart.js. No SVG. -->
+    <!-- Data: Security Guidelines -> Goal: Organize -> Viz: Flowchart -> Justification: Step-by-step process. Method: HTML/CSS. No SVG, No Mermaid JS. -->
+    <!-- Data: Host's Roles -> Goal: Organize -> Viz: Diagram with Icons -> Justification: Shows structure. Method: HTML/CSS. No SVG. -->
+    <!-- Data: Seminar Schedule -> Goal: Change (over time) -> Viz: Timeline with Icons -> Justification: Chronological flow. Method: HTML/CSS. No SVG. -->
+    <!-- Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this output. -->
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #131930;
+            color: #E0E0E0;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #E000B0, #00E0E0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .flowchart-step {
+            border: 2px solid #00E0E0;
+            background-color: #1E2A40;
+            color: #E0E0E0;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+        .flowchart-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+            border-color: #E000B0;
+        }
+        .flowchart-step .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #00E0E0;
+        }
+        .flowchart-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #E000B0;
+            padding: 0 1rem;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-black text-[#00E0E0] mb-4">🛡️ 시민과 함께하는 안전한 디지털 세상</h1>
+            <h2 class="text-3xl md:text-4xl font-bold gradient-text">정보보안 길잡이 세미나</h2>
+            <div class="mt-6 bg-[#1E2A40] p-6 rounded-lg shadow-lg border-t-4 border-[#E000B0]">
+                <p class="text-lg text-gray-200">서울시민의 디지털 안전을 위해 서울특별시 정보보안과가 준비했습니다.</p>
+                <p class="text-xl font-bold mt-4 text-[#FFFFFF]">2025년 11월 28일 (목) 14:00 | 서울시청 컨벤션홀</p>
+            </div>
+        </header>
+
+        <main>
+            <section id="threats" class="mb-12">
+                <div class="bg-[#1E2A40] rounded-lg shadow-md p-6 mb-6">
+                     <h3 class="text-3xl font-bold text-center gradient-text mb-2">우리는 매일 디지털 위협에 노출되어 있습니다</h3>
+                     <p class="text-center text-gray-300 mb-6">최신 사이버 공격은 점점 더 교묘해지고 있으며, 사소한 부주의가 큰 피해로 이어질 수 있습니다. 이번 세미나는 이러한 위협으로부터 우리 스스로를 지키는 방법을 배우는 첫걸음입니다.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div class="bg-[#2C3E50] p-6 rounded-lg">
+                            <div class="text-6xl mb-2 text-[#E000B0]">📈</div>
+                            <div class="text-4xl font-black text-[#E000B0]">75%</div>
+                            <p class="mt-2 font-bold text-gray-200">증가한 연간 스미싱 공격</p>
+                        </div>
+                        <div class="bg-[#2C3E50] p-6 rounded-lg">
+                            <div class="text-6xl mb-2 text-[#E000B0]">🔗</div>
+                            <div class="text-4xl font-black text-[#E000B0]">1.5초</div>
+                            <p class="mt-2 font-bold text-gray-200">마다 발생하는 개인정보 유출</p>
+                        </div>
+                        <div class="bg-[#2C3E50] p-6 rounded-lg">
+                            <div class="text-6xl mb-2 text-[#E000B0]">🌍</div>
+                            <div class="text-4xl font-black text-[#E000B0]">TOP 3</div>
+                            <p class="mt-2 font-bold text-gray-200">피싱 공격 대상 국가</p>
+                        </div>
+                    </div>
+                     <p class="text-center text-sm text-gray-400 mt-4">※ 위 통계는 이해를 돕기 위한 예시 데이터입니다.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+                    <div class="bg-[#1E2A40] rounded-lg shadow-md p-6">
+                        <h4 class="text-2xl font-bold text-center gradient-text mb-4">일상 속 주요 보안 위협 유형 (최근 3년)</h4>
+                        <p class="text-center text-gray-300 mb-6">피싱, 스미싱, 랜섬웨어 등 우리 주변에서 가장 빈번하게 발생하는 보안 위협들의 최근 동향을 비교합니다.</p>
+                        <div class="chart-container">
+                            <canvas id="threatTypesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="guidelines" class="mb-12">
+                 <h3 class="text-3xl font-bold text-center gradient-text mb-6">나를 지키는 정보보안 기본지침</h3>
+                 <p class="text-center text-gray-300 mb-8 max-w-3xl mx-auto">두 번째 세션에서는 전문가와 함께 실생활에서 바로 적용할 수 있는 필수 보안 수칙들을 알아봅니다. 복잡하고 어려운 기술이 아닌, 간단한 습관의 변화로 소중한 내 정보를 지킬 수 있습니다.</p>
+
+                <div class="bg-[#1E2A40] rounded-lg shadow-md p-8">
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+                        <div class="flowchart-step"><span class="icon">🔑</span><span>안전한 비밀번호 관리</span></div>
+                        <div class="flowchart-arrow">→</div>
+                        <div class="flowchart-step"><span class="icon">🔄</span><span>소프트웨어 최신 유지</span></div>
+                        <div class="flowchart-arrow">→</div>
+                        <div class="flowchart-step"><span class="icon">📶</span><span>공공 와이파이 안전 사용</span></div>
+                        <div class="flowchart-arrow">→</div>
+                        <div class="flowchart-step"><span class="icon">📱</span><span>스마트폰 보안 점검</span></div>
+                    </div>
+                    <p class="text-center text-gray-300 mt-8">이 모든 과정을 세미나에서 쉽고 체계적으로 알려드립니다.</p>
+                </div>
+            </section>
+
+            <section id="host" class="mb-12">
+                <h3 class="text-3xl font-bold text-center gradient-text mb-6">누가 이 세미나를 만드나요?</h3>
+                <div class="bg-[#1E2A40] rounded-lg shadow-md p-8 text-center">
+                    <p class="text-xl font-bold text-[#E000B0]">서울특별시 디지털도시국 정보보안과</p>
+                    <p class="text-gray-300 mb-8 max-w-3xl mx-auto">저희는 서울시의 정보 시스템을 보호하고 시민들의 개인정보를 안전하게 지키는 일을 합니다. 사이버 위협을 24시간 감시하고 대응하며, 시민 여러분이 안심하고 디지털 서비스를 이용할 수 있는 환경을 만들기 위해 최선을 다하고 있습니다.</p>
+                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-[#2C3E50] p-4 rounded-lg"><div class="text-4xl mb-2 text-[#00E0E0]">🖥️</div><span class="font-semibold text-gray-200">정보시스템 보안</span></div>
+                        <div class="bg-[#2C3E50] p-4 rounded-lg"><div class="text-4xl mb-2 text-[#00E0E0]">👤</div><span class="font-semibold text-gray-200">개인정보 보호</span></div>
+                        <div class="bg-[#2C3E50] p-4 rounded-lg"><div class="text-4xl mb-2 text-[#00E0E0]">🔎</div><span class="font-semibold text-gray-200">보안 취약점 분석</span></div>
+                        <div class="bg-[#2C3E50] p-4 rounded-lg"><div class="text-4xl mb-2 text-[#00E0E0]">🎓</div><span class="font-semibold text-gray-200">정보보안 교육</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="schedule" class="mb-12">
+                 <h3 class="text-3xl font-bold text-center gradient-text mb-8">⏰ 세미나 시간표</h3>
+                <div class="relative border-l-2 border-[#E000B0] pl-4 md:pl-0">
+                    <div class="mb-8 ml-8 relative">
+                        <div class="absolute w-4 h-4 bg-[#00E0E0] rounded-full -left-10 md:-left-12 border-2 border-white"></div>
+                        <div class="bg-[#2C3E50] rounded-md px-3 py-1 mb-1 inline-block"><p class="text-sm font-semibold text-gray-400">14:00 - 14:30</p></div>
+                        <h4 class="font-bold text-lg text-white">📝 등록 및 오프닝</h4>
+                        <p class="text-gray-300">환영사와 함께 세미나의 문을 엽니다.</p>
+                    </div>
+                    <div class="mb-8 ml-8 relative">
+                        <div class="absolute w-4 h-4 bg-[#00E0E0] rounded-full -left-10 md:-left-12 border-2 border-white"></div>
+                        <div class="bg-[#2C3E50] rounded-md px-3 py-1 mb-1 inline-block"><p class="text-sm font-semibold text-gray-400">14:30 - 15:30</p></div>
+                        <h4 class="font-bold text-lg text-white">💬 [강연 1] 정보보안, 왜 중요할까?</h4>
+                        <p class="text-gray-300">최신 개인정보 유출 사례와 주요 보안 위협에 대해 알아봅니다.</p>
+                    </div>
+                    <div class="mb-8 ml-8 relative">
+                        <div class="absolute w-4 h-4 bg-[#E000B0] rounded-full -left-10 md:-left-12 border-2 border-white"></div>
+                        <div class="bg-[#2C3E50] rounded-md px-3 py-1 mb-1 inline-block"><p class="text-sm font-semibold text-gray-400">15:30 - 15:45</p></div>
+                        <h4 class="font-bold text-lg text-white">☕ 휴식 시간</h4>
+                    </div>
+                    <div class="mb-8 ml-8 relative">
+                        <div class="absolute w-4 h-4 bg-[#00E0E0] rounded-full -left-10 md:-left-12 border-2 border-white"></div>
+                        <div class="bg-[#2C3E50] rounded-md px-3 py-1 mb-1 inline-block"><p class="text-sm font-semibold text-gray-400">15:45 - 16:45</p></div>
+                        <h4 class="font-bold text-lg text-white">💬 [강연 2] 나를 지키는 정보보안 기본지침</h4>
+                        <p class="text-gray-300">비밀번호 관리, 공공 와이파이 사용법 등 실용적인 팁을 배웁니다.</p>
+                    </div>
+                    <div class="ml-8 relative">
+                        <div class="absolute w-4 h-4 bg-[#00E0E0] rounded-full -left-10 md:-left-12 border-2 border-white"></div>
+                        <div class="bg-[#2C3E50] rounded-md px-3 py-1 mb-1 inline-block"><p class="text-sm font-semibold text-gray-400">16:45 - 17:00</p></div>
+                        <h4 class="font-bold text-lg text-white">❓ 질의응답 및 마무리</h4>
+                        <p class="text-gray-300">궁금한 점을 해결하고, 소정의 기념품을 증정합니다.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="register" class="text-center">
+                 <div class="bg-[#1E2A40] rounded-lg shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
+                     <h3 class="text-3xl font-black text-white mb-4">지금 바로 신청하세요!</h3>
+                     <p class="text-lg text-gray-300 mb-6">안전한 디지털 서울을 만드는 데 함께해주세요. 여러분의 참여가 큰 힘이 됩니다.</p>
+                     <a href="#" class="inline-block bg-gradient-to-r from-[#E000B0] to-[#00E0E0] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 text-lg">
+                         🎟️ 온라인 사전 신청하기
+                     </a>
+                     <p class="text-sm text-gray-400 mt-4">※ 현장 등록도 가능하나, 좌석이 한정되어 있어 조기 마감될 수 있습니다.</p>
+                 </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-12 py-6 border-t border-[#333]">
+            <p class="text-gray-400">&copy; 2025 서울특별시 디지털도시국 정보보안과. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const processLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const threatTypesCtx = document.getElementById('threatTypesChart').getContext('2d');
+        const threatTypesChart = new Chart(threatTypesCtx, {
+            type: 'line',
+            data: {
+                labels: ['피싱 (Phishing)', '스미싱 (Smishing)', '랜섬웨어 (Ransomware)', '악성코드 감염', '소셜 엔지니어링 공격'],
+                datasets: [{
+                    label: '2023년',
+                    data: [35, 25, 8, 7, 2],
+                    borderColor: '#E000B0',
+                    backgroundColor: 'rgba(224, 0, 176, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: '2024년',
+                    data: [40, 30, 9, 8, 3],
+                    borderColor: '#00E0E0',
+                    backgroundColor: 'rgba(0, 224, 224, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: '2025년',
+                    data: [45, 35, 10, 8, 2],
+                    borderColor: '#FFFFFF',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            color: '#E0E0E0'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            color: '#333'
+                        },
+                        ticks: {
+                            color: '#E0E0E0',
+                            callback: function(value, index, values) {
+                                const label = this.getLabelForValue(value);
+                                return processLabel(label);
+                            }
+                        }
+                    },
+                    y: {
+                        grid: {
+                            color: '#333'
+                        },
+                        ticks: {
+                            color: '#E0E0E0'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
